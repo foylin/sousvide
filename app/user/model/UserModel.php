@@ -189,6 +189,43 @@ class UserModel extends Model
         return 1;
     }
 
+    public function registerApp($user)
+    {
+        $result = Db::name("user")->where('mobile', $user['mobile'])->find();
+
+        $userStatus = 1;
+
+        // if (cmf_is_open_registration()) {
+        //     $userStatus = 2;
+        // }
+
+        if (empty($result)) {
+            $data   = [
+                'user_login'      => '',
+                'user_email'      => '',
+                'mobile'          => $user['mobile'],
+                'user_nickname'   => '',
+                'user_pass'       => cmf_password($user['user_pass']),
+                'last_login_ip'   => get_client_ip(0, true),
+                'create_time'     => time(),
+                'last_login_time' => time(),
+                'user_status'     => $userStatus,
+                "user_type"       => 2,//会员
+                'area'            => $user['area'],
+            ];
+            $userId = Db::name("user")->insertGetId($data);
+            $info   = Db::name("user")->where('id', $userId)->find();
+            // cmf_update_current_user($data);
+            // return $data;
+            $data['status'] = 0;
+            $data['info'] = $info;
+
+            return $data;
+        }
+        $data['status'] = 1;
+        return $data;
+    }
+
     /**
      * 通过邮箱重置密码
      * @param $email

@@ -1753,3 +1753,26 @@ function cmf_is_open_registration()
 
     return empty($cmfSettings['open_registration']) ? false : true;
 }
+
+/**
+ * 随机字符串生成
+ * @param int $len 生成的字符串长度
+ * @return string
+ */
+function sp_random_string_key($len = 6) {
+    $chars = array(
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
+        "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
+        "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G",
+        "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+        "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2",
+        "3", "4", "5", "6", "7", "8", "9", "*", "_"
+    );
+    $charsLen = count($chars) - 1;
+    shuffle($chars);    // 将数组打乱
+    $output = "";
+    for ($i = 0; $i < $len; $i++) {
+        $output .= $chars[mt_rand(0, $charsLen)];
+    }
+    return $output;
+}
