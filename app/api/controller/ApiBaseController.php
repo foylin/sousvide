@@ -108,7 +108,7 @@ class ApiBaseController extends HomeBaseController
             'uid'=>$uid,
             'create_time'=>array('gt',(time()-60*60*24*30))
         );
-        $ukey=DB::name('ukey')->where($map)->value('id');
+        $ukey=DB::name('ukey')->where($map)->value('ukey');
         return $ukey;
     }
     /**

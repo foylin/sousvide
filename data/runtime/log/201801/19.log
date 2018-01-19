@@ -5086,3 +5086,399 @@
 [ sql ] [ SQL ] SELECT `hook`,`plugin` FROM `rc_hook_plugin` WHERE  `status` = 1 ORDER BY list_order ASC [ RunTime:0.022924s ]
 [ sql ] [ SQL ] SHOW COLUMNS FROM `rc_user` [ RunTime:0.024623s ]
 [ sql ] [ SQL ] SELECT * FROM `rc_user` WHERE  `id` = 7 LIMIT 1 [ RunTime:0.027025s ]
+---------------------------------------------------------------
+[ 2018-01-19T23:03:15+08:00 ] 127.0.0.1 127.0.0.1 GET /public/portal/admin_article/index.html
+[ info ] sousvide.net/public/portal/admin_article/index.html [运行时间：0.540511s][吞吐率：1.85req/s] [内存消耗：4,549.52kb] [文件加载：84]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.118118s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'portal',
+    1 => 'admin_article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=n0mffj739q9b1flcoth33gnq24; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sousvide.net/public/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'sousvide.net',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/food\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.004209s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003871s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\portal\controller\AdminArticleController->index[ D:\phpStudy\WWW\sousvide\app\portal\controller\AdminArticleController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/portal\admin_article\index.html [ array (
+  0 => 'dtFlag',
+  1 => 'admin',
+  2 => 'start_time',
+  3 => 'end_time',
+  4 => 'keyword',
+  5 => 'articles',
+  6 => 'category_tree',
+  7 => 'category',
+  8 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.046669s ] mysql:dbname=sousvide;host=120.76.164.249;port=3306;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_hook_plugin` [ RunTime:0.027674s ]
+[ sql ] [ SQL ] SELECT `hook`,`plugin` FROM `rc_hook_plugin` WHERE  `status` = 1 ORDER BY list_order ASC [ RunTime:0.029809s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_user` [ RunTime:0.028664s ]
+[ sql ] [ SQL ] SELECT * FROM `rc_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.029063s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_portal_post` [ RunTime:0.031288s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `rc_portal_post` `a` INNER JOIN `rc_user` `u` ON `a`.`user_id`=`u`.`id` WHERE  `a`.`create_time` >= 0  AND `a`.`delete_time` = 0  AND `a`.`post_type` = 1 LIMIT 1 [ RunTime:0.026363s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`user_login`,`u`.`user_nickname`,`u`.`user_email` FROM `rc_portal_post` `a` INNER JOIN `rc_user` `u` ON `a`.`user_id`=`u`.`id` WHERE  `a`.`create_time` >= 0  AND `a`.`delete_time` = 0  AND `a`.`post_type` = 1 ORDER BY `update_time`  DESC LIMIT 0,10 [ RunTime:0.028474s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_portal_category` [ RunTime:0.027553s ]
+[ sql ] [ SQL ] SELECT * FROM `rc_portal_category` WHERE  `delete_time` = 0 ORDER BY list_order ASC [ RunTime:0.026900s ]
+---------------------------------------------------------------
+[ 2018-01-19T23:03:17+08:00 ] 127.0.0.1 127.0.0.1 GET /public/portal/admin_category/index.html
+[ info ] sousvide.net/public/portal/admin_category/index.html [运行时间：0.395110s][吞吐率：2.53req/s] [内存消耗：4,231.44kb] [文件加载：80]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.113097s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'portal',
+    1 => 'admin_category',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; PHPSESSID=n0mffj739q9b1flcoth33gnq24; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sousvide.net/public/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'sousvide.net',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/food\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001723s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.005338s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\portal\controller\AdminCategoryController->index[ D:\phpStudy\WWW\sousvide\app\portal\controller\AdminCategoryController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/portal\admin_category\index.html [ array (
+  0 => 'dtFlag',
+  1 => 'admin',
+  2 => 'category_tree',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.041549s ] mysql:dbname=sousvide;host=120.76.164.249;port=3306;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_hook_plugin` [ RunTime:0.029511s ]
+[ sql ] [ SQL ] SELECT `hook`,`plugin` FROM `rc_hook_plugin` WHERE  `status` = 1 ORDER BY list_order ASC [ RunTime:0.030222s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_user` [ RunTime:0.028212s ]
+[ sql ] [ SQL ] SELECT * FROM `rc_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.029829s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_portal_category` [ RunTime:0.032055s ]
+[ sql ] [ SQL ] SELECT * FROM `rc_portal_category` WHERE  `delete_time` = 0 ORDER BY list_order ASC [ RunTime:0.029153s ]
+---------------------------------------------------------------
+[ 2018-01-19T23:03:18+08:00 ] 127.0.0.1 127.0.0.1 GET /public/portal/admin_article/index.html
+[ info ] sousvide.net/public/portal/admin_article/index.html [运行时间：0.419969s][吞吐率：2.38req/s] [内存消耗：4,549.89kb] [文件加载：84]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.105082s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'portal',
+    1 => 'admin_article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; refersh_time=0; thinkphp_show_page_trace=0|0; PHPSESSID=n0mffj739q9b1flcoth33gnq24; admin_username=admin',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://sousvide.net/public/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'sousvide.net',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/food\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002297s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\admin.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/user\lang\zh-cn\admin_menu.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../data/lang/zh-cn/admin_menu.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\AdminLangBehavior @admin_init [ RunTime:0.003543s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\portal\controller\AdminArticleController->index[ D:\phpStudy\WWW\sousvide\app\portal\controller\AdminArticleController.php ]
+[ info ] [ VIEW ] themes/admin_simpleboot3/portal\admin_article\index.html [ array (
+  0 => 'dtFlag',
+  1 => 'admin',
+  2 => 'start_time',
+  3 => 'end_time',
+  4 => 'keyword',
+  5 => 'articles',
+  6 => 'category_tree',
+  7 => 'category',
+  8 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.038406s ] mysql:dbname=sousvide;host=120.76.164.249;port=3306;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_hook_plugin` [ RunTime:0.027385s ]
+[ sql ] [ SQL ] SELECT `hook`,`plugin` FROM `rc_hook_plugin` WHERE  `status` = 1 ORDER BY list_order ASC [ RunTime:0.029913s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_user` [ RunTime:0.030345s ]
+[ sql ] [ SQL ] SELECT * FROM `rc_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_portal_post` [ RunTime:0.027403s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `rc_portal_post` `a` INNER JOIN `rc_user` `u` ON `a`.`user_id`=`u`.`id` WHERE  `a`.`create_time` >= 0  AND `a`.`delete_time` = 0  AND `a`.`post_type` = 1 LIMIT 1 [ RunTime:0.032085s ]
+[ sql ] [ SQL ] SELECT `a`.*,`u`.`user_login`,`u`.`user_nickname`,`u`.`user_email` FROM `rc_portal_post` `a` INNER JOIN `rc_user` `u` ON `a`.`user_id`=`u`.`id` WHERE  `a`.`create_time` >= 0  AND `a`.`delete_time` = 0  AND `a`.`post_type` = 1 ORDER BY `update_time`  DESC LIMIT 0,10 [ RunTime:0.029007s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_portal_category` [ RunTime:0.055389s ]
+[ sql ] [ SQL ] SELECT * FROM `rc_portal_category` WHERE  `delete_time` = 0 ORDER BY list_order ASC [ RunTime:0.028134s ]
+---------------------------------------------------------------
+[ 2018-01-19T23:03:28+08:00 ] 127.0.0.1 127.0.0.1 POST /public/api/user/login
+[ info ] sousvide.net/public/api/user/login [运行时间：0.317906s][吞吐率：3.15req/s] [内存消耗：3,769.66kb] [文件加载：70]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.096884s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=shb46imh49q9svkgkvuc1taqf7',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'postman-token' => '4fdcdd29-3a5c-b010-4b9c-3b24ee5ce8d8',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'cache-control' => 'no-cache',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'content-length' => '42',
+  'connection' => 'close',
+  'host' => 'sousvide.net',
+)
+[ info ] [ PARAM ] array (
+  'password' => '123456',
+  'mobile' => '13726041227',
+  'area' => '86',
+)
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/food\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002002s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn\home.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/food\lang\zh-cn\home.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn\home.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\HomeLangBehavior @home_init [ RunTime:0.002064s ]
+[ info ] [ RUN ] app\api\controller\UserController->login[ D:\phpStudy\WWW\sousvide\app\api\controller\UserController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.036143s ] mysql:dbname=sousvide;host=120.76.164.249;port=3306;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_hook_plugin` [ RunTime:0.024194s ]
+[ sql ] [ SQL ] SELECT `hook`,`plugin` FROM `rc_hook_plugin` WHERE  `status` = 1 ORDER BY list_order ASC [ RunTime:0.023435s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_user` [ RunTime:0.026059s ]
+[ sql ] [ SQL ] SELECT * FROM `rc_user` WHERE  `mobile` = '13726041227' LIMIT 1 [ RunTime:0.023897s ]
+[ sql ] [ SQL ] UPDATE `rc_user`  SET `last_login_time`=1516374208,`last_login_ip`='127.0.0.1'  WHERE  `id` = 8 [ RunTime:0.032852s ]
+[ sql ] [ SQL ] SELECT `id`,`user_login`,`user_nickname`,`avatar`,`mobile`,`area`,`last_login_time`,`sex`,`birthday`,`create_time` FROM `rc_user` WHERE  `mobile` = '13726041227'  AND `user_status` = 1 LIMIT 1 [ RunTime:0.024251s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_ukey` [ RunTime:0.024124s ]
+[ sql ] [ SQL ] SELECT `id` FROM `rc_ukey` WHERE  `uid` = 8  AND `create_time` > 1513782208 LIMIT 1 [ RunTime:0.023348s ]
+---------------------------------------------------------------
+[ 2018-01-19T23:03:33+08:00 ] 127.0.0.1 127.0.0.1 POST /public/api/user/login
+[ info ] sousvide.net/public/api/user/login [运行时间：0.325664s][吞吐率：3.07req/s] [内存消耗：3,769.75kb] [文件加载：70]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.108013s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=shb46imh49q9svkgkvuc1taqf7',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'postman-token' => '165a668f-547c-7d87-7951-bc386bd858aa',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'cache-control' => 'no-cache',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'content-length' => '42',
+  'connection' => 'close',
+  'host' => 'sousvide.net',
+)
+[ info ] [ PARAM ] array (
+  'password' => '123456',
+  'mobile' => '13726041227',
+  'area' => '86',
+)
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/food\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.001739s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn\home.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/food\lang\zh-cn\home.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn\home.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\HomeLangBehavior @home_init [ RunTime:0.001686s ]
+[ info ] [ RUN ] app\api\controller\UserController->login[ D:\phpStudy\WWW\sousvide\app\api\controller\UserController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.041922s ] mysql:dbname=sousvide;host=120.76.164.249;port=3306;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_hook_plugin` [ RunTime:0.027468s ]
+[ sql ] [ SQL ] SELECT `hook`,`plugin` FROM `rc_hook_plugin` WHERE  `status` = 1 ORDER BY list_order ASC [ RunTime:0.028611s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_user` [ RunTime:0.027225s ]
+[ sql ] [ SQL ] SELECT * FROM `rc_user` WHERE  `mobile` = '13726041227' LIMIT 1 [ RunTime:0.027414s ]
+[ sql ] [ SQL ] UPDATE `rc_user`  SET `last_login_time`=1516374212,`last_login_ip`='127.0.0.1'  WHERE  `id` = 8 [ RunTime:0.032210s ]
+[ sql ] [ SQL ] SELECT `id`,`user_login`,`user_nickname`,`avatar`,`mobile`,`area`,`last_login_time`,`sex`,`birthday`,`create_time` FROM `rc_user` WHERE  `mobile` = '13726041227'  AND `user_status` = 1 LIMIT 1 [ RunTime:0.025774s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_ukey` [ RunTime:0.026997s ]
+[ sql ] [ SQL ] SELECT `id` FROM `rc_ukey` WHERE  `uid` = 8  AND `create_time` > 1513782212 LIMIT 1 [ RunTime:0.026317s ]
+---------------------------------------------------------------
+[ 2018-01-19T23:04:21+08:00 ] 127.0.0.1 127.0.0.1 POST /public/api/user/login
+[ info ] sousvide.net/public/api/user/login [运行时间：0.360368s][吞吐率：2.77req/s] [内存消耗：3,769.88kb] [文件加载：70]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run cmf\behavior\InitHookBehavior @app_init [ RunTime:0.115963s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\simplewind\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=shb46imh49q9svkgkvuc1taqf7',
+  'accept-language' => 'zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'postman-token' => '5810e973-d553-f66c-6c16-314ff26b3254',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'cache-control' => 'no-cache',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'content-length' => '42',
+  'connection' => 'close',
+  'host' => 'sousvide.net',
+)
+[ info ] [ PARAM ] array (
+  'password' => '123456',
+  'mobile' => '13726041227',
+  'area' => '86',
+)
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../simplewind/cmf/lang\zh-cn.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/admin\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/food\lang\zh-cn\common.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn\common.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\LangBehavior @app_begin [ RunTime:0.002284s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn.php
+[ info ] [ CACHE ] INIT File
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/api\lang\zh-cn\home.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/food\lang\zh-cn\home.php
+[ info ] [ LANG ] D:\phpStudy\WWW\sousvide\public/../app/portal\lang\zh-cn\home.php
+[ info ] [ BEHAVIOR ] Run cmf\behavior\HomeLangBehavior @home_init [ RunTime:0.002070s ]
+[ info ] [ RUN ] app\api\controller\UserController->login[ D:\phpStudy\WWW\sousvide\app\api\controller\UserController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.044465s ] mysql:dbname=sousvide;host=120.76.164.249;port=3306;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_hook_plugin` [ RunTime:0.030028s ]
+[ sql ] [ SQL ] SELECT `hook`,`plugin` FROM `rc_hook_plugin` WHERE  `status` = 1 ORDER BY list_order ASC [ RunTime:0.027657s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_user` [ RunTime:0.031844s ]
+[ sql ] [ SQL ] SELECT * FROM `rc_user` WHERE  `mobile` = '13726041227' LIMIT 1 [ RunTime:0.029176s ]
+[ sql ] [ SQL ] UPDATE `rc_user`  SET `last_login_time`=1516374261,`last_login_ip`='127.0.0.1'  WHERE  `id` = 8 [ RunTime:0.037369s ]
+[ sql ] [ SQL ] SELECT `id`,`user_login`,`user_nickname`,`avatar`,`mobile`,`area`,`last_login_time`,`sex`,`birthday`,`create_time` FROM `rc_user` WHERE  `mobile` = '13726041227'  AND `user_status` = 1 LIMIT 1 [ RunTime:0.030611s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `rc_ukey` [ RunTime:0.029496s ]
+[ sql ] [ SQL ] SELECT `ukey` FROM `rc_ukey` WHERE  `uid` = 8  AND `create_time` > 1513782261 LIMIT 1 [ RunTime:0.027461s ]
