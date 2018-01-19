@@ -19,13 +19,13 @@ class ApiBaseController extends HomeBaseController
     public function _initialize(){
         parent::_initialize();
 
-        $ext_action=array('register', 'login');
+        $ext_action=array('register', 'login', 'passwordreset');
         $isukey=input('?post.ukey');
         // dump($isukey);
         
 
         $ukey = input('post.ukey');
-
+        // dump(request()->action());
         // if(request()->isGet()){
         //     $this->inputData=input('get.');
         // }
@@ -37,7 +37,6 @@ class ApiBaseController extends HomeBaseController
             if(!$this->uid){
                 $this->ajaxBack(false,'请登录',-1);
             }
-            
         }
     }
 
@@ -121,7 +120,7 @@ class ApiBaseController extends HomeBaseController
         $map=array(
             'ukey'=>$ukey,
         );
-        $uid=DB::name('ukey')->where($map)->value('id');
+        $uid=DB::name('ukey')->where($map)->value('uid');
         return $uid;
     }
     /**
@@ -162,13 +161,11 @@ class ApiBaseController extends HomeBaseController
             $info['create_time']=date("Y-m-d H:i:s",$info['create_time']);
             $info['last_login_time']=date("Y-m-d H:i:s",$info['last_login_time']);
 
-            // if($info['pic']){
-            //     $arr=explode(",",$info['pic']);
-            //     $arr[0] = !empty($arr[0]) ? $arr[0] : '/img/default.jpg';
-            //     $info['pic']=$this->get_host_url().$arr[0];
-            // }else{
-            //     $info['pic']=$this->get_host_url().$arr[0];
-            // }
+            if($info['avatar']){
+                $info['avatar']=$this->request->domain().$info['avatar'];
+            }else{
+                $info['avatar']=$this->request->domain()."/static/images/headicon.png";;
+            }
         }
         return $info;
     }
