@@ -13,6 +13,8 @@ namespace app\food\controller;
 use cmf\controller\AdminBaseController;
 use app\food\model\FoodCategoryModel;
 
+use think\Db;
+
 class CategoryController extends AdminBaseController
 {
 
@@ -49,13 +51,22 @@ class CategoryController extends AdminBaseController
             $this->error($result);
         }
 
-        $result = $this->model->addEditCategory($data);
+        $result = $this->model->addCategory($data);
 
         if ($result === false) {
             $this->error('添加失败!');
         }
 
         $this->success('添加成功!', url('Category/index'));
+    }
+
+
+    public function edit() 
+    {
+        $id = $this->request->param('id', 0, 'intval');
+        $data     = $this->model->get($id)->toArray();
+        $this->assign($data);
+        return $this->fetch();
     }
 
 
@@ -68,13 +79,36 @@ class CategoryController extends AdminBaseController
             $this->error($result);
         }
 
-        $result = $this->model->addEditCategory($data);
+        $result = $this->model->editCategory($data);
 
         if ($result === false) {
             $this->error('编辑失败!');
         }
 
         $this->success('编辑成功!', url('Category/index'));
+    }
+
+
+    public function delete() 
+    {
+        $id = $this->request->param('id');
+        $cate = $this->model->get($id)->toArray();
+        if (empty($cate)) {
+            $this->error('分类不存在!');
+        }
+
+        //判断此分类下是否有商品
+        $c1 = Db::table('rc_food')->where('cat_id',$id)->count('1');
+        if ($c1) {
+            $this->error('此分类下有菜谱,不得删除!');
+        }
+        //删除分类
+        $c2 = Db::table('rc_food_category')->where('id',$id)->delete();
+        if ($c2) {
+            $this->success('删除成功!');
+        } else {
+            $this->error('删除失败!');
+        }
     }
 
 

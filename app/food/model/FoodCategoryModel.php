@@ -78,7 +78,7 @@ class FoodCategoryModel extends Model
      * @param $data
      * @return bool
      */
-    public function addEditCategory($data)
+    /*public function addEditCategory($data)
     {
         $result = true;
         self::startTrans();
@@ -96,6 +96,80 @@ class FoodCategoryModel extends Model
             self::rollback();
             $result = false;
         }
+
+        return $result;
+    }*/
+
+
+    /**
+     * 添加菜谱分类
+     * @param $data
+     * @return bool
+     */
+    public function addCategory($data)
+    {
+        $result = true;
+        self::startTrans();
+        try {
+
+            $this->allowField(true)->save($data);
+            $id = $this->id;
+
+            if (empty($data['parent_id'])) {
+                $this->where(['id' => $id])->update(['path' => '0-' . $id]);
+            } else {
+                $parentPath = $this->where('id', intval($data['parent_id']))->value('path');
+                $this->where(['id' => $id])->update(['path' => "$parentPath-$id"]);
+            }
+
+            self::commit();
+        } catch (\Exception $e) {
+            self::rollback();
+            $result = false;
+        }
+
+        return $result;
+    }
+
+
+    public function editCategory($data)
+    {
+        $result = true;
+
+        $id          = intval($data['id']);
+        $parentId    = intval($data['parent_id']);
+        $oldCategory = $this->where('id', $id)->find();
+
+        if (empty($parentId)) {
+            $newPath = '0-' . $id;
+        } else {
+            $parentPath = $this->where('id', intval($data['parent_id']))->value('path');
+            if ($parentPath === false) {
+                $newPath = false;
+            } else {
+                $newPath = "$parentPath-$id";
+            }
+        }
+
+        if (empty($oldCategory) || empty($newPath)) {
+            $result = false;
+        } else {
+
+
+            $data['path'] = $newPath;
+        
+            $this->isUpdate(true)->allowField(true)->save($data, ['id' => $id]);
+
+            $children = $this->field('id,path')->where('path', 'like', "%-$id-%")->select();
+
+            if (!empty($children)) {
+                foreach ($children as $child) {
+                    $childPath = str_replace($oldCategory['path'] . '-', $newPath . '-', $child['path']);
+                    $this->isUpdate(true)->save(['path' => $childPath], ['id' => $child['id']]);
+                }
+            }
+        }
+
 
         return $result;
     }

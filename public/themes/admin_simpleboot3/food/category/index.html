@@ -32,15 +32,15 @@
                     <td><b>{$vo.id}</b></td>
                     <td>{$vo.name}</td>
                     <td>
-                        <if condition="$vo['status'] eq '1'">
-                            <a class="js-ajax-dialog-btn btn-on" data-msg="您确定要停用?" href="{:url('statusUpdate',['id'=>$vo['id'] , 'field'=>'status' , 'status'=>'0'])}">{:config('cmf_iconfint_check')} 是 </a>
+                        <if condition="$vo['is_show'] eq '1'">
+                            <a class="js-ajax-dialog-btn btn-on" data-msg="您确定要停用?" href="{:url('statusUpdate',['id'=>$vo['id'] , 'field'=>'is_show' , 'status'=>'0'])}">{:config('cmf_iconfint_check')} 是 </a>
                         <else />
-                            <a class="js-ajax-dialog-btn btn-off" data-msg="您确定要启用?" href="{:url('statusUpdate',['id'=>$vo['id'] , 'field'=>'status' , 'status'=>'1'])}">{:config('cmf_iconfint_ban')} 否 </a>
+                            <a class="js-ajax-dialog-btn btn-off" data-msg="您确定要启用?" href="{:url('statusUpdate',['id'=>$vo['id'] , 'field'=>'is_show' , 'status'=>'1'])}">{:config('cmf_iconfint_ban')} 否 </a>
                         </if>
                     </td>
                     <td>
-                        <a href="{:url('AdminArticle/edit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
-                        <a href="{:url('AdminArticle/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
+                        <a href="{:url('edit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
+                        <a href="{:url('delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
                     </td>
                 </tr>
             </foreach>
