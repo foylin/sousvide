@@ -282,6 +282,23 @@ class UserModel extends Model
         return 0;
     }
 
+    public function editData_byapi($user)
+    {
+        $userId           = cmf_get_current_user_id();
+        $data['user_nickname'] = $user['user_nickname'];
+        $data['sex'] = $user['sex'];
+        $data['birthday'] = strtotime($user['birthday']);
+        // $data['user_url'] = $user['user_url'];
+        // $data['signature'] = $user['signature'];
+        $userQuery        = Db::name("user");
+        if ($userQuery->where('id', $userId)->update($data)) {
+            $userInfo = $userQuery->where('id', $userId)->find();
+            cmf_update_current_user($userInfo);
+            return 1;
+        }
+        return 0;
+    }
+
     /**
      * 用户密码修改
      * @param $user

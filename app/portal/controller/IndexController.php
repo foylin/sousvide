@@ -16,7 +16,7 @@ class IndexController extends HomeBaseController
 {
     public function index()
     {
-        // return $this->fetch(':index');
-        return '非法访问!!!';
+        return $this->fetch(':index');
+        // return '非法访问!!!';
     }
 }

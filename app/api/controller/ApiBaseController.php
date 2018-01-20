@@ -160,6 +160,7 @@ class ApiBaseController extends HomeBaseController
         if($info){
             $info['create_time']=date("Y-m-d H:i:s",$info['create_time']);
             $info['last_login_time']=date("Y-m-d H:i:s",$info['last_login_time']);
+            $info['birthday']=date("Y-m-d",$info['birthday']);
 
             if($info['avatar']){
                 $info['avatar']=$this->request->domain().$info['avatar'];
